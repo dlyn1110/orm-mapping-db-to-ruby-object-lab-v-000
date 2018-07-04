@@ -49,6 +49,14 @@ class Student
     end
    end
 
+   def self.students_below_12th_grade
+     sql = <<-SQL
+     SELECT COUNT(*)
+     FROM students
+     WHERE grade < 12
+     SQL
+   end
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
