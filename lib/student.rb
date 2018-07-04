@@ -21,17 +21,15 @@ class Student
    end
 
   def self.find_by_name(name)
-    sql = <<-SQL
+    sql = <<-SQL    
     SELECT FROM students
     WHERE name = ?
     LIMIT 1
     SQL
-
+   # find the student in the database given a name
     DB[:conn].execute(sql, name).map do |row|
-      self.new_from_db(row)
+      self.new_from_db(row)# return a new instance of the Student class
     end.first
-    # find the student in the database given a name
-    # return a new instance of the Student class
   end
 
   def save
