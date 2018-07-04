@@ -16,7 +16,7 @@ class Student
     FROM students
     SQL
 
-    DB[:conn].execute(sql).map each do |row|
+    DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)# remember each row should be a new instance of the Student class
   end
 
