@@ -17,7 +17,6 @@ class Student
     SQL
 
     DB[:conn].execute(sql)# remember each row should be a new instance of the Student class
-
   end
 
   def self.find_by_name(name)
