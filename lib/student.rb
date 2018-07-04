@@ -1,4 +1,5 @@
-class Student
+require 'pry'
+
   attr_accessor :id, :name, :grade
 
   def self.new_from_db(row)
