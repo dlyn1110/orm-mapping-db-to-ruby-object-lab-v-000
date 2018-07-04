@@ -2,15 +2,15 @@ class Student
   attr_accessor :id, :name, :grade
 
   def self.new_from_db(row)
-    new_student = self.new# self.new is the same student.new
+    new_student = self.new     # self.new is the same student.new
     new_student.id = row[0]
     new_student.name = row[1]
     new_student.grade = row[2]
-    new_student # return the newly created instance
-    # create a new Student object given a row from the database
+    new_student                # return the newly created instance
+                              # create a new Student object given a row from the database
   end
 
-  def self.all# retrieve all the rows from the "Students" database
+  def self.all                    # retrieve all the rows from the "Students" database
     sql = <<-SQL
     SELECT *
     FROM students
@@ -35,7 +35,7 @@ class Student
   def self.count_all_students_in_grade_9
     sql = <<-SQL
     SELECT FROM students
-    WHERE grade < 9
+    WHERE grade = 9
     SQL
 
     DB[:conn].execute(sql).map do |row|
